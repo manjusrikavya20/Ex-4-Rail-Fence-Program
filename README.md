@@ -20,6 +20,65 @@ STEP-5: Read the characters row wise or column wise in the former order to get t
 
 # PROGRAM
 
+```
+NAME: MANJUSRI KAVYA R
+REGISTER NUMBER: 212224040186
+```
+```
+NAME:PREETHI A K
+REGISTER NUMBER:212223230156
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int i, j, len, rails, count, dir;
+    char str[1000];
+    int code[100][1000] = {0}; // Initialize the entire array to 0
+
+    printf("Enter a Secret Message:\n");
+    scanf("%s", str);
+
+    len = strlen(str);
+
+    printf("Enter number of rails:\n");
+    scanf("%d", &rails);
+
+    i = 0;
+    dir = 1; // 1 = moving down, -1 = moving up
+
+    // Fill the rail matrix
+    for (j = 0; j < len; j++) {
+        code[i][j] = str[j];
+
+        // Change direction at top or bottom rail
+        if (i == 0)
+            dir = 1;
+        else if (i == rails - 1)
+            dir = -1;
+
+        i += dir;
+    }
+
+    printf("Encrypted Message:\n");
+
+    // Print encrypted message row by row
+    for (i = 0; i < rails; i++) {
+        for (j = 0; j < len; j++) {
+            if (code[i][j] != 0)
+                printf("%c", code[i][j]);
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
+
+```
 # OUTPUT
 
+<img width="312" height="266" alt="image" src="https://github.com/user-attachments/assets/117ce84b-f329-4b46-a4cb-74239c2b796c" />
+
 # RESULT
+
+Thus, to write a C program to implement the rail fence transposition technique has been done successfully .
